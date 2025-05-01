@@ -1,16 +1,15 @@
-[project]
-name = "crypto-advisor"
+[tool.poetry]
+name = "cryptoadvisor"
 version = "0.1.0"
-description = "Pet-project"
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-]
+description = ""
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.2"
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
