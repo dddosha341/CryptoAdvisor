@@ -1,9 +1,12 @@
 __pycache__/
 *.py[cod]
 
-.env
-.venv
-venv/
-env/
+# .vs
+# .vscode
 
-alembic.ini
+# .env
+# .venv
+# venv/
+# env/
+
+# alembic.ini

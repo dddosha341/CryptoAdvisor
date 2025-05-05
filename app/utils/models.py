@@ -1,11 +1,10 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import relationship
+from database import Base
 import datetime
 
-Base = declarative_base()
-
 class Currency(Base):
-    __tablename__ = "currencies"
+    __tablename__ = "currency"
 
     id = Column(Integer, primary_key=True)
     symbol = Column(String, nullable=False)
@@ -17,10 +16,10 @@ class Currency(Base):
 
 
 class Price(Base):
-    __tablename__ = "prices"
+    __tablename__ = "price"
 
     id = Column(Integer, primary_key=True)
-    currency_id = Column(Integer, ForeignKey("currencies.id", ondelete="CASCADE"))
+    currency_id = Column(Integer, ForeignKey("currency.id", ondelete="CASCADE"))
     price_usd = Column(Float)
     timestamp = Column(DateTime, default=datetime.datetime.utcnow)
 
@@ -28,10 +27,10 @@ class Price(Base):
 
 
 class Recommendation(Base):
-    __tablename__ = "recommendations"
+    __tablename__ = "recommendation"
 
     id = Column(Integer, primary_key=True)
-    currency_id = Column(Integer, ForeignKey("currencies.id", ondelete="CASCADE"))
+    currency_id = Column(Integer, ForeignKey("currency.id", ondelete="CASCADE"))
     recommendation = Column(String)
     confidence = Column(Float)
     timestamp = Column(DateTime, default=datetime.datetime.utcnow)
